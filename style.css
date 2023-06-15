@@ -1,0 +1,185 @@
+/* 
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+ */
+:root {
+  /* ### Primary */
+
+  --Purple: hsl(259, 100%, 65%);
+  --Light-red: hsl(0, 100%, 67%);
+
+  /* ### Neutral */
+
+  --White: hsl(0, 0%, 100%);
+  --Off-white: hsl(0, 0%, 94%);
+  --Light-grey: hsl(0, 0%, 86%);
+  --Smokey-grey: hsl(0, 1%, 44%);
+  --Off-black: hsl(0, 0%, 8%);
+
+  /* ## Typography */
+
+  /* ### Body Copy */
+
+  --Font-size-inputs: 32px;
+
+  /* ### Font */
+
+  --Family: "Poppins", sans-serif;
+  --Weight1: 400;
+  --Weight2: 700;
+  --Weight3: 800;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--Family);
+}
+.h1 {
+  font-size: 3em;
+  font-weight: bold;
+  line-height: 1.2;
+  /* margin-top: 0;
+  margin-bottom: 0.5em; */
+}
+.calculator {
+  width: 95vw;
+  max-width: 500px;
+  height: 65vh;
+  margin: 60px auto;
+  padding: 30px 20px;
+  border-radius: 30px;
+  border-bottom-right-radius: 70px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 2.6px 15.2px -35px rgba(0, 0, 0, 0.155),
+    16px 21px 121px -35px rgba(0, 0, 0, 0.31);
+}
+
+@media screen and (min-width: 768px) {
+  .calculator {
+    padding: 50px 30px;
+    border-bottom-right-radius: 100px;
+  }
+}
+
+.calculator .form-group {
+  width: 100%;
+  max-width: 300px;
+  height: 50px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.calculator .form-group label {
+  position: absolute;
+  top: -25px;
+  color: var(--Smokey-grey);
+  font-weight: lighter;
+  font-size: 0.8em;
+}
+
+.calculator .form-group label:nth-of-type(1) {
+  left: 0;
+}
+
+.calculator .form-group label:nth-of-type(2) {
+  left: calc(50% - (90% / 6));
+}
+
+.calculator .form-group label:nth-of-type(3) {
+  left: calc(100% - (90% / 3));
+}
+
+.calculator .form-group input {
+  width: calc(90% / 3);
+  padding: 10px;
+  border: 1px solid var(--Light-grey);
+  font-size: 1.1em;
+  font-weight: var(--Weight2);
+  outline: none;
+  border-radius: 7px;
+  transition: 0.3s linear;
+}
+
+.calculator .form-group input:hover,
+.calculator .form-group input:focus {
+  border-color: var(--Purple);
+  caret-color: var(--Purple);
+}
+
+.calculator button {
+  width: 50px;
+  height: 50px;
+  margin: 20px auto;
+  border-radius: 50%;
+  position: relative;
+  background-color: var(--Purple);
+  color: var(--White);
+  border: none;
+  transition: 0.3s linear;
+}
+
+@media screen and (min-width: 768px) {
+  .calculator button {
+    width: 70px;
+    height: 70px;
+    margin-left: 90%;
+    transform: translateX(-50%);
+  }
+}
+
+.calculator button:hover {
+  background-color: var(--Off-black);
+}
+
+.calculator button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 1px;
+  background-color: var(--Light-grey);
+  z-index: -1;
+}
+
+@media screen and (min-width: 768px) {
+  .calculator button::before {
+    width: 350px;
+    left: -250%;
+  }
+}
+
+.calculator button svg {
+  height: 20px !important;
+  width: 20px !important;
+}
+.calculator button svg g {
+  stroke-width: 3 !important;
+}
+
+.calculator .data {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.calculator .data .h1 span:nth-of-type(1) {
+  color: var(--Purple);
+  font-weight: var(--Weight1);
+}
